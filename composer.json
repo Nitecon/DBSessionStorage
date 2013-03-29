@@ -1,0 +1,28 @@
+{
+    "name": "nitecon/zf2-db-session",
+    "description": "Zend Framework 2 database session storage",
+    "type": "library",
+    "keywords": ["db","session","storage","database","zf2"],
+    "homepage": "https://github.com/Nitecon/DBSessionStorage",
+    "license": "New BSD License",
+    "authors": [
+        {
+            "name": "Will Hattingh",
+            "email": "w.hattingh@nitecon.com",
+            "homepage": "http://www.nitecon.com/",
+            "role": "Master"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*",
+    },
+    "autoload": {
+        "psr-0": {
+            "DBSessionStorage": "src/"
+        },
+        "classmap": [
+            "Module.php"
+        ]
+    }
+}
