@@ -49,6 +49,15 @@ If you do not have this configuration please make sure to add it based on your d
 remember to put your username and password details in the local.php file so that it is not added
 to the revision control system that you use.
 
+## Gotchas and Errors
+
+If you see the error that looks something like: Zend\Session\SessionManager 'Insufficient data for unserializing'
+It means that the data being inserted into the database is larger than what the column allows for it.
+
+To fix this issue adjust the 'data' column in your database from 'text' -> 'blob', On some of my applications that
+store a good amount of data in the session I've noticed that with some ZF2 overhead on the session they are generally
+around 1.5kb in size which generates this error.
+
 ## Final notes
 
 Please note that the driver as listed above does not need to be Pdo it can be anything that Zend Adapter
