@@ -11,11 +11,7 @@ return array(
     'service_manager' => array(
         'factories' => array(
             'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
-            'DBSessionStorage\Storage\DBStorage' => function($sm) {
-                $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-                $storage = new DBSessionStorage\Storage\DBStorage($dbAdapter);
-                return $storage;
-            },
+            'DBSessionStorage\Factory\DBStorage' => 'DBSessionStorage\Factory\DBStorageFactory',
         )
     ),
 
