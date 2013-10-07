@@ -7,6 +7,7 @@ Zend Framework Module for storing sessions in database.
 - Easy to use module for getting your sessions into a database
 - Uses Zend\Session\SaveHandler\DbTableGateway
 - Uses your already available DB Configuration
+- Provides configurable session options
 
 ## Setup
 
@@ -25,6 +26,8 @@ The following steps are necessary to get this module working
         PRIMARY KEY (`id`)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
       </pre>
+  4. Copy `vendor/nitecon/zf2-db-session/dbsession.global.php.dist` to `config/autoload/dbsession.global.php` 
+  5. Configure the session options in `config/autoload/dbsession.global.php`
 
 ## Addditional Information
 

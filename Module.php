@@ -11,18 +11,22 @@
 
 namespace DBSessionStorage;
 
-class Module {
+class Module
+{
 
-    public function onBootstrap(\Zend\Mvc\MvcEvent $e) {
+    public function onBootstrap(\Zend\Mvc\MvcEvent $e)
+    {
         $storage = $e->getApplication()->getServiceManager()->get('DBSessionStorage\Storage\DBStorage');
         $storage->setSessionStorage();
     }
 
-    public function getConfig() {
+    public function getConfig()
+    {
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function getAutoloaderConfig() {
+    public function getAutoloaderConfig()
+    {
         return array(
             'Zend\Loader\ClassMapAutoloader' => array(
                 __DIR__ . '/autoload_classmap.php',
