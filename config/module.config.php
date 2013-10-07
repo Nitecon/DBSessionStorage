@@ -9,6 +9,9 @@
  */
 return array(
     'service_manager' => array(
+        'invokables' => array(
+            'DBSessionStorage\Storage\DBStorage' => 'DBSessionStorage\Storage\DBStorage',
+        ),
         'factories' => array(
             'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
             'DBSessionStorage\Factory\DBStorage' => 'DBSessionStorage\Factory\DBStorageFactory',
