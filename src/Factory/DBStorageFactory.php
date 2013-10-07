@@ -10,18 +10,29 @@
  * @author https://github.com/acnb
  * 
  */
+
+namespace DBSessionStorage\Factory;
+
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use DBSessionStorage\Storage\DBStorage;
-namespace DBSessionStorage\Factory;
+
 /*
  * Contributed storage factory by community user https://github.com/acnb
  */
-class DBStorageFactory implements FactoryInterface {
 
-    public function createService(ServiceLocatorInterface $serviceLocator) {
+class DBStorageFactory implements FactoryInterface
+{
+
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        $conf = $serviceLocator->get('Config');
+        $config = null;
+        if (isset($conf['zf2-db-session']) && isset($conf['zf2-db-session']['sessionConfig'])) {
+            $config = $conf['zf2-db-session']['sessionConfig'];
+        }
         $dbAdapter = $serviceLocator->get('\Zend\Db\Adapter\Adapter');
-        return new DBStorage($dbAdapter);;
+        return new DBStorage($dbAdapter,$config);
+        ;
     }
-
 }
