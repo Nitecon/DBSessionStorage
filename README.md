@@ -3,9 +3,6 @@ DBSessionStorage
 
 Zend Framework Module for storing sessions in database.
 
-Please note
-===========
-
 ## Features
 - Easy to use module for getting your sessions into a database
 - Uses Zend\Session\SaveHandler\DbTableGateway
