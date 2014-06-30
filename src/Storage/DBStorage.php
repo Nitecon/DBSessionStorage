@@ -13,6 +13,7 @@ namespace DBSessionStorage\Storage;
 
 use Zend\Session\SaveHandler\DbTableGateway;
 use Zend\Session\SaveHandler\DbTableGatewayOptions;
+use DBSessionStorage\SaveHandler\EncodedDbTableGateway;
 use Zend\Db\Adapter\Adapter;
 use Zend\Session\SessionManager;
 use Zend\Session\Container;
@@ -23,11 +24,13 @@ class DBStorage
     protected $adapter;
     protected $tblGW;
     protected $sessionConfig;
+    protected $serviceConfig;
 
-    public function __construct(Adapter $adapter, $session_config)
+    public function __construct(Adapter $adapter, $session_config, $service_config)
     {
         $this->adapter = $adapter;
         $this->sessionConfig = $session_config;
+        $this->serviceConfig = $service_config;
         $this->tblGW = new \Zend\Db\TableGateway\TableGateway('sessions', $this->adapter);
     }
 
@@ -41,8 +44,14 @@ class DBStorage
         $gwOpts->setNameColumn('name');
 
 
-
-        $saveHandler = new DbTableGateway($this->tblGW, $gwOpts);
+        if(isset($this->serviceConfig['base64Encode']) &&
+                $this->serviceConfig['base64Encode'])
+        {
+            $saveHandler = new EncodedDbTableGateway($this->tblGW, $gwOpts);
+        }
+        else {
+            $saveHandler = new DbTableGateway($this->tblGW, $gwOpts);
+        }
         $sessionManager = new SessionManager();
         if ($this->sessionConfig) {
             $sessionConfig = new \Zend\Session\Config\SessionConfig();

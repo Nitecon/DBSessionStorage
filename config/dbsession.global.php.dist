@@ -23,5 +23,8 @@ return array(
             'remember_me_seconds' => 3600,
             'use_cookies' => true,
         )
+        'serviceConfig'=>array(
+            'base64Encode'=>false
+        )
     )
 );
