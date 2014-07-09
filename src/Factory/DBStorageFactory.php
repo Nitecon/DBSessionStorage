@@ -28,10 +28,17 @@ class DBStorageFactory implements FactoryInterface
     {
         $conf = $serviceLocator->get('Config');
         $config = null;
+        $serviceConfig = null;
+        
         if (isset($conf['zf2-db-session']) && isset($conf['zf2-db-session']['sessionConfig'])) {
             $config = $conf['zf2-db-session']['sessionConfig'];
         }
+        
+        if (isset($conf['zf2-db-session']) && isset($conf['zf2-db-session']['serviceConfig'])) {
+            $serviceConfig = $conf['zf2-db-session']['serviceConfig'];
+        }
+        
         $dbAdapter = $serviceLocator->get('\Zend\Db\Adapter\Adapter');
-        return new DBStorage($dbAdapter, $config);
+        return new DBStorage($dbAdapter, $config, $serviceConfig);
     }
 }
