@@ -5,7 +5,7 @@ Zend Framework Module for storing sessions in database.
 
 ## Features
 - Easy to use module for getting your sessions into a database
-- Uses Zend\Session\SaveHandler\DbTableGateway
+- Uses Laminas\Session\SaveHandler\DbTableGateway
 - Uses your already available DB Configuration
 - Provides configurable session options
 
@@ -54,7 +54,7 @@ to the revision control system that you use.
 
 ## Gotchas and Errors
 
-If you see the error that looks something like: Zend\Session\SessionManager 'Insufficient data for unserializing'
+If you see the error that looks something like: Laminas\Session\SessionManager 'Insufficient data for unserializing'
 It means that the data being inserted into the database is larger than what the column allows for it.
 
 To fix this issue adjust the 'data' column in your database from 'text' -> 'blob', On some of my applications that

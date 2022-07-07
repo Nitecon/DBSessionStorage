@@ -14,7 +14,7 @@ namespace DBSessionStorage;
 class Module
 {
 
-    public function onBootstrap(\Zend\Mvc\MvcEvent $e)
+    public function onBootstrap(\Laminas\Mvc\MvcEvent $e)
     {
         $storage = $e->getApplication()->getServiceManager()->get('DBSessionStorage\Storage\DBStorage');
         $storage->setSessionStorage();
@@ -28,9 +28,10 @@ class Module
     public function getAutoloaderConfig()
     {
         return array(
-            'Zend\Loader\ClassMapAutoloader' => array(
+            'Laminas\Loader\ClassMapAutoloader' => array(
                 __DIR__ . '/autoload_classmap.php',
             ),
         );
     }
 }
+
