@@ -60,5 +60,5 @@ class EncodedDbTableGateway extends DbTableGateway{
         }
         return '';
     }
-}
+}//end of EncodedDbTableGateway
 

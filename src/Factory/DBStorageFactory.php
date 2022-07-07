@@ -41,5 +41,4 @@ class DBStorageFactory implements FactoryInterface
         $dbAdapter = $serviceLocator->get('\Laminas\Db\Adapter\Adapter');
         return new DBStorage($dbAdapter, $config, $serviceConfig);
     }
-}
-
+}//end of DBStorageFactory

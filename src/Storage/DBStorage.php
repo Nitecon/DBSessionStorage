@@ -62,5 +62,4 @@ class DBStorage
         Container::setDefaultManager($sessionManager);
         $sessionManager->start();
     }
-}
-
+}//end of DBStorage

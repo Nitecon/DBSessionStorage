@@ -33,5 +33,4 @@ class Module
             ),
         );
     }
-}
-
+}//end of Module
