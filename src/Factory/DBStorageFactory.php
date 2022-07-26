@@ -13,8 +13,8 @@
 
 namespace DBSessionStorage\Factory;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 use DBSessionStorage\Storage\DBStorage;
 
 /*
@@ -38,7 +38,7 @@ class DBStorageFactory implements FactoryInterface
             $serviceConfig = $conf['zf2-db-session']['serviceConfig'];
         }
         
-        $dbAdapter = $serviceLocator->get('\Zend\Db\Adapter\Adapter');
+        $dbAdapter = $serviceLocator->get('\Laminas\Db\Adapter\Adapter');
         return new DBStorage($dbAdapter, $config, $serviceConfig);
     }
-}
+}//end of DBStorageFactory

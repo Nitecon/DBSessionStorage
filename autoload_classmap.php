@@ -6,3 +6,4 @@ return array(
   'DBSessionStorage\Storage\DBStorage'                  => __DIR__ . '/src/Storage/DBStorage.php',
   'DBSessionStorage\SaveHandler\EncodedDbTableGateway'  => __DIR__ . '/src/SaveHandler/EncodedDbTableGateway.php'
 );
+

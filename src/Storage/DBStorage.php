@@ -11,12 +11,12 @@
 
 namespace DBSessionStorage\Storage;
 
-use Zend\Session\SaveHandler\DbTableGateway;
-use Zend\Session\SaveHandler\DbTableGatewayOptions;
+use Laminas\Session\SaveHandler\DbTableGateway;
+use Laminas\Session\SaveHandler\DbTableGatewayOptions;
 use DBSessionStorage\SaveHandler\EncodedDbTableGateway;
-use Zend\Db\Adapter\Adapter;
-use Zend\Session\SessionManager;
-use Zend\Session\Container;
+use Laminas\Db\Adapter\Adapter;
+use Laminas\Session\SessionManager;
+use Laminas\Session\Container;
 
 class DBStorage
 {
@@ -31,7 +31,7 @@ class DBStorage
         $this->adapter = $adapter;
         $this->sessionConfig = $session_config;
         $this->serviceConfig = $service_config;
-        $this->tblGW = new \Zend\Db\TableGateway\TableGateway('sessions', $this->adapter);
+        $this->tblGW = new \Laminas\Db\TableGateway\TableGateway('sessions', $this->adapter);
     }
 
     public function setSessionStorage()
@@ -54,7 +54,7 @@ class DBStorage
         }
         $sessionManager = new SessionManager();
         if ($this->sessionConfig) {
-            $sessionConfig = new \Zend\Session\Config\SessionConfig();
+            $sessionConfig = new \Laminas\Session\Config\SessionConfig();
             $sessionConfig->setOptions($this->sessionConfig);
             $sessionManager->setConfig($sessionConfig);
         }
@@ -62,4 +62,4 @@ class DBStorage
         Container::setDefaultManager($sessionManager);
         $sessionManager->start();
     }
-}
+}//end of DBStorage
